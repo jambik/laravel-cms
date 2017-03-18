@@ -1,0 +1,81 @@
+{
+    "name": "jambik/laravel-cms",
+    "description": "CMS based on the Laravel Framework.",
+    "keywords": ["framework", "laravel", "cms"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=5.6.4",
+        "barryvdh/laravel-elfinder": "^0.3.10",
+        "caouecs/laravel-lang": "^3.0",
+        "cviebrock/eloquent-sluggable": "^4.2",
+        "doctrine/dbal": "^2.5",
+        "garygreen/pretty-routes": "^0.0.6",
+        "gloudemans/shoppingcart": "^2.3",
+        "google/recaptcha": "^1.1",
+        "intervention/image": "^2.3",
+        "intervention/imagecache": "^2.3",
+        "jhaoda/socialite-mailru": "^3.0",
+        "jhaoda/socialite-odnoklassniki": "^3.0",
+        "kalnoy/nestedset": "^4.2",
+        "laracasts/flash": "^2.0",
+        "laravel/framework": "5.4.*",
+        "laravel/socialite": "^3.0",
+        "laravel/tinker": "~1.0",
+        "laravelcollective/html": "^5.4",
+        "lubusin/laravel-decomposer": "^1.0",
+        "nicolaslopezj/searchable": "^1.9",
+        "rap2hpoutre/laravel-log-viewer": "^0.8.0",
+        "roumen/sitemap": "^2.6",
+        "rtconner/laravel-tagging": "^2.2",
+        "rutorika/sortable": "^3.2",
+        "snowfire/beautymail": "^1.0",
+        "socialiteproviders/vkontakte": "^3.0",
+        "socialiteproviders/yandex": "^3.0",
+        "spatie/laravel-activitylog": "^1.12",
+        "studio-42/elfinder": "^2.1",
+        "zizaco/entrust": "^1.7"
+    },
+    "require-dev": {
+        "barryvdh/laravel-debugbar": "^2.3",
+        "barryvdh/laravel-ide-helper": "^2.2",
+        "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~5.7"
+    },
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ],
+        "post-install-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "php artisan optimize"
+        ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan ide-helper:generate",
+            "php artisan ide-helper:meta",
+            "php artisan optimize"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}
