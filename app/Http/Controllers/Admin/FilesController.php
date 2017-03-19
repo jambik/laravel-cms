@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Gallery;
+use App\File;
 use App\Http\Controllers\BackendController;
-use Flash;
 use Illuminate\Http\Request;
 
-class GalleriesController extends BackendController
+class FilesController extends BackendController
 {
     protected $resourceName = null;
 
     protected $model = null;
 
+    /**
+     * FilesController constructor.
+     */
     public function __construct()
     {
-        $this->resourceName = 'galleries';
-        $this->model = new Gallery();
+        $this->resourceName = 'files';
+        $this->model = new File();
     }
 
     /**
@@ -26,7 +28,7 @@ class GalleriesController extends BackendController
      */
     public function index()
     {
-        $items = $this->model->all();
+        $items = $this->model->sorted()->get();
 
         return view('admin.'.$this->resourceName.'.index', compact('items'));
     }
@@ -50,10 +52,11 @@ class GalleriesController extends BackendController
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required'
+            'name' => 'required',
+            'file' => 'required',
         ]);
 
-        $this->model->create($request->all());
+        $item = $this->model->create($request->all());
 
         return redirect(route('admin.'.$this->resourceName.'.index'));
     }
@@ -93,7 +96,6 @@ class GalleriesController extends BackendController
     {
         $this->validate($request, [
             'name' => 'required',
-            'slug' => 'required|unique:' . $this->model->getTable() . ',slug,'.$id,
         ]);
 
         $item = $this->model->findOrFail($id);
@@ -113,7 +115,7 @@ class GalleriesController extends BackendController
     {
         $item = $this->model->findOrFail($id);
 
-        $item->destroy();
+        $item->delete();
 
         return redirect(route('admin.'.$this->resourceName.'.index'));
     }

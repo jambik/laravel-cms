@@ -51,6 +51,9 @@ Route::group(['prefix' => 'admin'], function()
             ## Slides
             Route::resource('slides', 'Admin\SlidesController');
 
+            ## Files
+            Route::resource('files', 'Admin\FilesController');
+
             ## Users
             Route::resource('users', 'Admin\UsersController');
 
@@ -63,6 +66,9 @@ Route::group(['prefix' => 'admin'], function()
 
         ## Imageable routes
         Route::delete('imageable', ['as' => 'imageable.delete', 'uses' => 'Admin\ImageableController@delete']);
+
+        ## Fileable routes
+        Route::delete('fileable', ['as' => 'fileable.delete', 'uses' => 'Admin\FileableController@delete']);
 
         ## Headerable routes
         Route::delete('headerable', ['as' => 'headerable.delete', 'uses' => 'Admin\HeaderableController@delete']);

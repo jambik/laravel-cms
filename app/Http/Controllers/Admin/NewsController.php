@@ -115,7 +115,7 @@ class NewsController extends BackendController
     {
         $item = $this->model->findOrFail($id);
 
-        $item->delete();
+        $item->destroy();
 
         return redirect(route('admin.'.$this->resourceName.'.index'));
     }

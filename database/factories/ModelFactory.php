@@ -112,3 +112,11 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'image' => $faker->image(storage_path('images').DIRECTORY_SEPARATOR.'products', 640, 480, null, false, false),
     ];
 });
+
+$factory->define(App\File::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->file(),
+        'description' => $faker->sentences(),
+        'file' => $faker->image(storage_path('files').DIRECTORY_SEPARATOR, 640, 480, null, false, false),
+    ];
+});

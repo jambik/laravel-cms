@@ -6,7 +6,6 @@ use App\Category;
 use App\Http\Controllers\BackendController;
 use App\Product;
 use Illuminate\Http\Request;
-use Spatie\Activitylog\Models\Activity;
 
 class ProductsController extends BackendController
 {
@@ -149,7 +148,7 @@ class ProductsController extends BackendController
     {
         $item = $this->model->findOrFail($id);
 
-        $item->delete();
+        $item->destroy();
 
         return redirect(route('admin.'.$this->resourceName.'.index'));
     }
