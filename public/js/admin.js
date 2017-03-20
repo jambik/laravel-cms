@@ -216,3 +216,37 @@ function deleteImage(element)
         }
     });
 }
+
+/**
+ * Удаление файла
+ *
+ * @param element HTML Элемент (Кнопка или ссылка удаления)
+ */
+function deleteFile(element)
+{
+    var $preloader = $(element).next('.preloader');
+
+    $(element).hide();
+
+    if ($preloader.length){
+        $preloader.show();
+    }
+
+    var data = {
+        '_method':     'DELETE',
+        'model_class': $(element).data('modelClass'),
+        'model_id':    $(element).data('modelId')
+    };
+    $.post($(element).data('requestUrl'), data, function(data){
+        $(element).parent().remove();
+    }, 'json')
+        .fail(function(){
+            sweetAlert("", "Ошибка при запросе к серсеру", 'error');
+            $(element).show();
+        })
+        .always(function(){
+            if ($preloader.length){
+                $preloader.hide();
+            }
+        });
+}

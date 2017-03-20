@@ -149,6 +149,9 @@ Route::group([], function ()
     Route::get('auth/google', 'Auth\Social\GoogleAuthController@redirectToProvider');
     Route::get('auth/google/callback', 'Auth\Social\GoogleAuthController@handleProviderCallback');
 
+    ## Fileable routes
+    Route::get('fileable/{id}', ['as' => 'fileable.download', 'uses' => 'Admin\FileableController@download'])->where('id', '[0-9]+');
+
     ## Sitemap
     Route::get('sitemap.xml', 'SitemapController@index');
 

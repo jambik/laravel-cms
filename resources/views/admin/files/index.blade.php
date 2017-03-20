@@ -12,9 +12,8 @@
                 <tr>
                     <th data-orderable="false" class="btn-collumn"></th>
                     <th>Id</th>
-                    <th>Название</th>
-                    <th>Описание</th>
                     <th>Имя файла</th>
+                    <th>Описание</th>
                     <th data-orderable="false" class="btn-collumn"></th>
                     <th data-orderable="false" class="btn-collumn"></th>
                 </tr>
@@ -24,9 +23,8 @@
                     <tr data-item-id="{{ $item->id }}">
                         <td class="sortable-handle"><i class="material-icons">&#xE240;</i></td>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->name }}</td>
+                        <td>@if ($item->file) <a class="file-icon-name" href="{{ route('fileable.download', $item->id) }}" target="_blank"><div class="file-icon" data-type="{{ substr($item->file, strrpos($item->file, '.') + 1) }}"></div><span>{{ $item->name . substr($item->file, strrpos($item->file, '.')) }}</span></a> @endif</td>
                         <td>{{ $item->description }}</td>
-                        <td>{{ $item->file }}</td>
                         <td><a href="{{ route('admin.files.edit', $item->id) }}" class="btn btn-primary btn-small"><i class="material-icons">edit</i></a></td>
                         <td><button onclick="confirmDelete(this, '{{ $item->id }}')" class="btn btn-danger btn-small"><i class="material-icons">delete</i></button></td>
                     </tr>

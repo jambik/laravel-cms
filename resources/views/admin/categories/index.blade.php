@@ -9,7 +9,7 @@
 @endsection
 
 @section('head_scripts')
-
+    <link rel="stylesheet" href="/library/jstree/themes/default/style.min.css" />
 @endsection
 
 @section('footer_scripts')

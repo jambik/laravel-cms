@@ -32,8 +32,8 @@ mix.combine([
     'bower_components/cropper/dist/cropper.min.js'
 ], 'public/js/app.bundle.js');
 
-mix.copy('bower_components/bootstrap/fonts', 'public/fonts');
-mix.copy('bower_components/font-awesome/fonts/*.*', 'public/fonts');
+// mix.copy('bower_components/bootstrap/fonts', 'public/fonts');
+// mix.copy('bower_components/font-awesome/fonts/*.*', 'public/fonts');
 
 /* Admin files */
 mix.combine([
@@ -45,6 +45,7 @@ mix.combine([
     'bower_components/selectize/dist/css/selectize.default.css',
     'bower_components/datetimepicker/jquery.datetimepicker.css',
     'bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css',
+    'bower_components/fileicon.css/fileicon.css',
 ], 'public/css/admin.bundle.css');
 mix.combine([
     'bower_components/jquery/dist/jquery.min.js',

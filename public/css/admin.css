@@ -64,6 +64,26 @@ nav .navbar-brand img { display: inline-block; }
     cursor: move;
 }
 
+.file-icon-name {
+    display: inline-block;
+    line-height: 32px;
+    padding: 5px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+.file-icon-name div {
+    float: left;
+    margin-right: 5px;
+}
+
+.file-icon-name span {
+    font-weight: bolder;
+    font-size: 90%;
+}
+
 .no-items {
     background: #eee;
     padding: 50px 0;

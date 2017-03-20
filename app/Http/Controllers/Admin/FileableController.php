@@ -2,13 +2,27 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\File;
 use App\Http\Controllers\BackendController;
 use Illuminate\Http\Request;
 
 class FileableController extends BackendController
 {
     /**
-     * Delete Image
+     * Download File
+     *
+     * @param File $id
+     * @return Response
+     */
+    public function download($id)
+    {
+        $file = File::findOrFail($id);
+
+        return response()->download($file->filePath() . DIRECTORY_SEPARATOR . $file->file, $file->name . substr($file->file, strrpos($file->file, '.')));
+    }
+
+    /**
+     * Delete File
      *
      * @param Request $request
      * @return Response

@@ -105,7 +105,6 @@
 
 <script>
     import jstree from 'jstree';
-    import jstree_css from 'jstree/dist/themes/default/style.min.css';
 
     import tooltip from 'bootstrap/js/tooltip';
     import modal from 'bootstrap/js/modal';

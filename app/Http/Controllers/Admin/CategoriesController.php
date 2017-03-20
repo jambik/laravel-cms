@@ -134,7 +134,7 @@ class CategoriesController extends BackendController
     {
         $item = $this->model->findOrFail($id);
 
-        $item->destroy();
+        $item->delete();
 
         if ($request->ajax()){
             return response()->json([

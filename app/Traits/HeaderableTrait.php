@@ -74,7 +74,9 @@ trait HeaderableTrait
      */
     public function deleteHeaderFile($clearAttribute = false)
     {
-        File::delete($this->headerPath() . DIRECTORY_SEPARATOR . $this->header->image);
+        if ($this->header->image) {
+            File::delete($this->headerPath() . DIRECTORY_SEPARATOR . $this->header->image);
+        }
 
         if ($clearAttribute){
             $this->clearHeaderImageAttribute();
