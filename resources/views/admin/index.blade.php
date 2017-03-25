@@ -1,6 +1,6 @@
 @extends('admin.layouts.full')
 
-@section('title', 'Администрирование - Ликойл')
+@section('title', 'Администрирование')
 
 @section('content')
     {{--<jambik-message title="First">The first text.</jambik-message>
@@ -8,7 +8,7 @@
     <jambik-message title="Third" class="is-success">And third.</jambik-message>
     <jambik-message title="Fourth" class="is-warning">And finally fourth.</jambik-message>--}}
 
-    <jambik-modal v-if="showModal" @close="showModal = false">
+    {{--<jambik-modal v-if="showModal" @close="showModal = false">
         <template slot="title">
             TITLE
         </template>
@@ -26,9 +26,9 @@
                 </ul>
             </div>
         </template>
-    </jambik-modal>
+    </jambik-modal>--}}
 
-    <button class="btn btn-lg btn-primary" @click="showModal = true">show modal</button>
+    {{--<button class="btn btn-lg btn-primary" @click="showModal = true">show modal</button>--}}
 
     {{--<jambik-tabs>
         <jambik-tab name="Home" :selected="true">
@@ -47,6 +47,8 @@
     </jambik-tabs>--}}
 
     {{--<jambik-coupon></jambik-coupon>--}}
+
+
 @endsection
 
 @section('head_scripts')

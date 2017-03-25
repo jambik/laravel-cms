@@ -48,10 +48,10 @@ trait PhotoableTrait
     {
 //        dd($request->all());
 
-        $imageName      = strtolower(class_basename($this)).'-'.$this->id;
+        $imageName      = strtolower(class_basename($this)) . '-' . $this->id;
         $imageExtension = strtolower($request->file('file')->getClientOriginalExtension());
 
-        $photoFile = $request->file('file')->move($this->photoPath(), $imageName.'-'.uniqid().'.'.$imageExtension);
+        $photoFile = $request->file('file')->move($this->photoPath(), $imageName . '-' . uniqid() . '.' . $imageExtension);
 
         $item = $this->photos()->create([
             'image'   => $photoFile->getFilename(),

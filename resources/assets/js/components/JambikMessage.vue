@@ -23,7 +23,7 @@
             }
         },
         created() {
-            Event.$on('entered', () => alert('entered in message'));
+//            Event.$on('entered', () => alert('entered in message'));
         },
         mounted() {
             console.log('Component jambik-message mounted.')

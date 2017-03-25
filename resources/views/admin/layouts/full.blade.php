@@ -22,7 +22,7 @@
 
     @yield('head_scripts')
 
-    <title>@yield('title', 'Администрирование - Ликойл')</title>
+    <title>@yield('title', 'Администрирование')</title>
 </head>
 <body>
 <div id="app">
@@ -38,7 +38,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="{{ route('admin') }}">
-                    <img src="/img/logo.png" class="img-responsive" style="height: 35px;">
+                    <img src="{{ asset('img/logo.png') }}" style="height: 35px;">
                     <a class="navbar-brand" href="#" style="line-height: 35px; padding-left: 20px;">Laravel CMS</a>
                 </a>
             </div>
@@ -72,7 +72,7 @@
                 <ul class="list-group">
                     <a class="list-group-item" href="{{ route('admin.categories.index') }}"><i class="material-icons left">list</i> Категории</a>
                     <a class="list-group-item" href="{{ route('admin.products.index') }}"><i class="material-icons left">store</i> Продукты</a>
-                    {{--    <a class="list-group-item" href="{{ route('admin.photos.index') }}"><i class="material-icons left">photo</i> Фотографии</a>--}}
+                        <a class="list-group-item" href="{{ route('admin.photos.index') }}"><i class="material-icons left">photo</i> Фотографии</a>
                     <div class="divider"></div>
                     <a class="list-group-item" href="{{ route('admin.pages.index') }}"><i class="material-icons left">content_copy</i> Страницы</a>
                     <a class="list-group-item" href="{{ route('admin.blocks.index') }}"><i class="material-icons left">text_format</i> Текстовые блоки</a>

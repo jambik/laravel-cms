@@ -5,11 +5,12 @@ namespace App;
 use App\Traits\ImageableTrait;
 use App\Traits\ResourceableTrait;
 use Illuminate\Database\Eloquent\Model;
+use Nicolaslopezj\Searchable\SearchableTrait;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class News extends Model
 {
-    use ImageableTrait, ResourceableTrait, LogsActivity;
+    use ImageableTrait, ResourceableTrait, SearchableTrait, LogsActivity;
 
     protected $table = 'news';
 
@@ -20,4 +21,11 @@ class News extends Model
     protected $dates = ['created_at', 'updated_at', 'published_at'];
 
     protected $appends = ['img_url'];
+
+    protected $searchable = [
+        'columns' => [
+            'title' => 70,
+            'text' => 30,
+        ],
+    ];
 }

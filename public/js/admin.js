@@ -125,6 +125,10 @@ $(document).ready(function () {
  */
 function confirmDelete(element, id, url)
 {
+    if ( ! id) {
+        id = $(element).data('id');
+    }
+
     sweetAlert({
         title: 'Удаление',
         text: 'Вы действительно хотите удалить запись #' + id + '?',
@@ -136,7 +140,7 @@ function confirmDelete(element, id, url)
         closeOnConfirm: false,
         showLoaderOnConfirm: true,
     }, function(){
-        if (!url) {
+        if ( ! url) {
             url = window.location.href + '/' + id;
         }
         $.post(url, { '_method': 'DELETE' }, function(data){

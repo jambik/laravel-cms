@@ -12,6 +12,7 @@ const { mix } = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js/vue.js');
+mix.js('resources/assets/js/test.js', 'public/js/vue-test.js');
 
 /* App files */
 mix.combine([

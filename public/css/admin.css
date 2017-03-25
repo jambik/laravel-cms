@@ -22,12 +22,6 @@ nav .navbar-brand img { display: inline-block; }
     background: #eee;
 }
 
-.img-responsive {
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
-}
-
 .input-checkbox {
     margin-bottom: 10px;
 }

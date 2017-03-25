@@ -22,11 +22,58 @@ class NewsController extends BackendController
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $items = $this->model->orderBy('published_at', 'desc')->get();
+        if ($request->wantsJson()) {
+            $draw = $request->get('draw');
+            $start = $request->get('start');
+            $length = $request->get('length');
+
+            $recordsTotal = $this->model->count();
+            $recordsFiltered = $recordsTotal;
+
+            $columns = $request->get('columns');
+            $order = $request->get('order');
+            $search = $request->get('search');
+
+            /*$items->transform(function ($item, $key) {
+                $item->date = Carbon::parse($item->date)->format('d.m.Y H:i');
+                return $item;
+            });*/
+
+            //
+            $query = $this->model->query();
+
+            // Поиск
+            if ($search['value']) {
+                $query->search($search['value']);
+                $recordsFiltered = $query->count();
+            }
+
+            // Добавление пагинации
+            $query->skip($start)->limit($length);
+
+            // Добавление сортировки по колонкам
+            foreach ($order as $orderColumn) {
+                $query->orderBy($columns[$orderColumn['column']]['data'], $orderColumn['dir']);
+            }
+
+            // Выборка строк
+            $items = $query->get();
+
+
+            return response()->json([
+                'draw' => $draw,
+                'recordsTotal' => $recordsTotal,
+                'recordsFiltered' => $recordsFiltered,
+                'data' => $items,
+            ]);
+        }
+
+//        $items = $this->model->orderBy('published_at', 'desc')->get();
 
         return view('admin.'.$this->resourceName.'.index', compact('items'));
     }
@@ -115,7 +162,7 @@ class NewsController extends BackendController
     {
         $item = $this->model->findOrFail($id);
 
-        $item->destroy();
+        $item->delete();
 
         return redirect(route('admin.'.$this->resourceName.'.index'));
     }

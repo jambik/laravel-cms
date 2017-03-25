@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Мебель комфорта')
+@section('title', 'Поиск')
 
 @section('content')
     @include('partials._status')
