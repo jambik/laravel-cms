@@ -17,4 +17,6 @@ class File extends Model
     protected $fillable = ['name', 'description', 'file'];
 
     protected static $logAttributes = ['name', 'description', 'file'];
+
+    protected $appends = ['file_url'];
 }

@@ -115,8 +115,8 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
 
 $factory->define(App\File::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->file(),
-        'description' => $faker->sentences(),
-        'file' => $faker->image(storage_path('files').DIRECTORY_SEPARATOR, 320, 240, null, false, false),
+        'name' => $faker->word,
+        'description' => $faker->sentence(),
+        'file' => $faker->image(storage_path('files').DIRECTORY_SEPARATOR.'files', 320, 240, null, false, false),
     ];
 });
