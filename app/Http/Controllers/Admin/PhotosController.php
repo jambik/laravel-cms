@@ -105,7 +105,9 @@ class PhotosController extends BackendController
      */
     public function destroy($id, Request $request)
     {
-        $this->model->destroy($id);
+        $item = $this->model->findOrFail($id);
+
+        $item->delete();
 
         if ($request->ajax()){
             return json_encode([

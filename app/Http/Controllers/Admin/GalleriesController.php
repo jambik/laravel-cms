@@ -113,7 +113,7 @@ class GalleriesController extends BackendController
     {
         $item = $this->model->findOrFail($id);
 
-        $item->destroy();
+        $item->delete();
 
         return redirect(route('admin.'.$this->resourceName.'.index'));
     }

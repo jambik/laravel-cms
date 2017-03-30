@@ -117,7 +117,9 @@ class ArticlesController extends BackendController
      */
     public function destroy($id)
     {
-        $this->model->destroy($id);
+        $item = $this->model->findOrFail($id);
+
+        $item->delete();
 
         return redirect(route('admin.'.$this->resourceName.'.index'));
     }
