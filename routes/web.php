@@ -119,6 +119,14 @@ Route::group([], function ()
     Route::get('catalog/{category}', ['as' => 'catalog.category', 'uses' => 'CatalogController@category']); // category page
     Route::get('product/{product}', ['as' => 'catalog.product', 'uses' => 'CatalogController@product']); // product page
 
+    ## Cart routes
+    Route::group([], function ()
+    {
+        Route::get('cart', ['as' => 'cart.index', 'uses' => 'CartController@index']); // Cart
+        Route::get('cart/add/{id}/{qty?}/{attributes?}', ['as' => 'cart.add', 'uses' => 'CartController@add'])->where(['id' => '[0-9]+', 'qty' => '[0-9]+']); // Add item to cart
+        Route::get('cart/delete/{rowId}', ['as' => 'cart.delete', 'uses' => 'CartController@delete'])->where('id', '[0-9]+'); // Delete item from cart
+    });
+
     ## Profile routes
     Route::group(['middleware' => 'auth'], function ()
     {

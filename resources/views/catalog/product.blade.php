@@ -37,7 +37,7 @@
                     <strong>{{ $product->price }}</strong> руб.
                 </div>
                 <div class="add-cart">
-                    <a href="#">
+                    <a href="{{ route('cart.add', ['id' => $product->id]) }}">
                         <i class="fa fa-cart-plus" aria-hidden="true"></i>
                         <span>Добавить<br>в&nbsp;корзину</span>
                     </a>

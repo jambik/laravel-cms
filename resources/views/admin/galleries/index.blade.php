@@ -28,7 +28,7 @@
                         <td>{{ $item->slug }}</td>
                         <td>{{ str_limit($item->text, 300) }}</td>
                         <td><a href="{{ route('admin.galleries.edit', $item->id) }}" class="btn btn-primary btn-small"><i class="material-icons">edit</i></a></td>
-                        <td><button onclick="confirmDelete(this, '{{ $item->id }}')" class="btn btn-danger btn-small"><i class="material-icons">delete</i></button></td>
+                        <td><button onclick="confirmDelete(this, '{{ $item->id }}')" class="btn btn-danger btn-small"></button></td>
                     </tr>
                 @endforeach
             </tbody>
