@@ -10,7 +10,7 @@
             @endif
         </div>
         <div class="name"><a href="{{ route('catalog.product', $product->slug) }}">{{ $product->name }}</a></div>
-        <div class="price">Цена: <span>{{ $product->price }} руб.</span></div>
+        <div class="price">Цена: <span>{{ number_format($product->price, 0, '.', ' ') }} руб.</span></div>
         <div class="more text-center"><a href="{{ route('catalog.product', $product->slug) }}" class="btn">Подробнее</a></div>
     </div>
 </div>

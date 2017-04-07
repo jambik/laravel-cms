@@ -16,6 +16,13 @@ class CartController extends FrontendController
     {
         $cart = Cart::content();
 
+        $products = Product::whereIn('id', $cart->pluck('id'))->get()->keyBy('id');
+
+        $cart->transform(function ($item, $key) use ($products) {
+            $item->product = $products[$item->id];
+            return $item;
+        });
+
         return view('cart.index', compact('cart'));
     }
 

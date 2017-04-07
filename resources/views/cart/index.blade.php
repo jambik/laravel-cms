@@ -19,20 +19,24 @@
                     <th>Цена</th>
                     <th>Количество</th>
                     <th>Сумма</th>
-                    <th data-orderable="false" class="btn-collumn"></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-            @foreach($cart as $item)
-                <tr>
-                    <td><img src="/images/small/{{ $item->model->img_url . $item->model->image }}" class="img-responsive img-thumbnail"></td>
-                    <td><a href="{{ route('catalog.product', $item->model->slug) }}">{{ $item->name }}</a></td>
-                    <td>{{ $item->price }}</td>
-                    <td>{{ $item->qty }}</td>
-                    <td>{{ $item->subtotal }}</td>
-                    <td><a href="{{ route('cart.delete', $item->rowId) }}" class="btn btn-danger"><i class="fa fa-trash-o"></i></a></td>
-                </tr>
-            @endforeach
+                @foreach($cart as $item)
+                    <tr>
+                        <td><img src="/images/small/{{ $item->product->img_url . $item->product->image }}" class="img-responsive img-thumbnail"></td>
+                        <td><a href="{{ route('catalog.product', $item->product->slug) }}">{{ $item->name }}</a></td>
+                        <td>{{ number_format($item->price, 0, '.', ' ') }} руб.</td>
+                        <td>
+                            <button class="btn btn-sm btn-default">-</button>
+                            <input style="width: 50px;" type="text" value="{{ $item->qty }}" />
+                            <button class="btn btn-sm btn-default">+</button>
+                        </td>
+                        <td>{{ number_format($item->subtotal, 0, '.', ' ') }} руб.</td>
+                        <td><a href="{{ route('cart.delete', $item->rowId) }}" class="btn btn-danger"><i class="fa fa-trash-o"></i></a></td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     @else

@@ -34,7 +34,7 @@
         <div class="col-lg-5 info">
             <div class="price-calculate">
                 <div class="price">
-                    <strong>{{ $product->price }}</strong> руб.
+                    <strong>{{ number_format($product->price, 0, '.', ' ') }}</strong> руб.
                 </div>
                 <div class="add-cart">
                     <a href="{{ route('cart.add', ['id' => $product->id]) }}">

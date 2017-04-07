@@ -17,10 +17,6 @@ class Category extends Model
 
     protected $table = 'categories';
 
-    protected $with = [
-        'header'
-    ];
-
     protected $fillable = [
         'name',
         'slug',
@@ -70,7 +66,7 @@ class Category extends Model
      */
     public function products()
     {
-        return $this->hasMany('App\Product');
+        return $this->hasMany(Product::class);
     }
 
     /**
