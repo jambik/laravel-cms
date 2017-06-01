@@ -33,6 +33,7 @@
         "socialiteproviders/vkontakte": "^3.0",
         "socialiteproviders/yandex": "^3.0",
         "spatie/laravel-activitylog": "^1.12",
+        "spatie/laravel-backup": "^4.16",
         "studio-42/elfinder": "^2.1",
         "zizaco/entrust": "^1.7"
     },

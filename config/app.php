@@ -183,6 +183,7 @@ return [
         Lubusin\Decomposer\DecomposerServiceProvider::class,
         Spatie\Activitylog\ActivitylogServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
+        Spatie\Backup\BackupServiceProvider::class,
         Barryvdh\Elfinder\ElfinderServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
