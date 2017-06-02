@@ -60,8 +60,11 @@
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownUser">
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('profile.personal') }}"><i class="fa fa-user"></i> Личный кабинет</a></li>
                             <li class="divider"></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('logout') }}"><i class="fa fa-sign-out"></i> Выход</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> Выход</a></li>
                         </ul>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                     </li>
                 @else
                     <li><a href="{{ url('login') }}"><i class="fa fa-sign-in"></i> Вход</a></li>
